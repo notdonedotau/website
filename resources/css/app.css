@@ -53,20 +53,61 @@ a {
 }
 
 .page-shell {
+    position: relative;
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
     padding: 1.25rem 1.5rem;
 }
 
+.site-header,
 .theme-toggle,
 .hero,
+.content-page,
 .site-footer {
     position: relative;
 }
 
+.site-header {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.site-mark,
+.site-nav a {
+    text-decoration: none;
+}
+
+.site-mark {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.site-nav a:hover,
+.site-mark:hover {
+    color: var(--text);
+}
+
 .theme-toggle {
-    justify-self: end;
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -95,11 +136,15 @@ a {
     box-shadow: 0 0 0 0.25rem color-mix(in srgb, currentColor 16%, transparent);
 }
 
+.page-shell main {
+    min-height: calc(100vh - 2.5rem);
+    display: grid;
+    place-items: center;
+}
+
 .hero {
-    align-self: center;
-    justify-self: center;
     width: min(100%, 46rem);
-    padding: 3rem 1rem;
+    padding: 1rem;
     text-align: center;
 }
 
@@ -130,6 +175,93 @@ a {
     color: var(--muted);
 }
 
+.content-page {
+    width: min(100%, 60rem);
+    padding: 4rem 1rem;
+}
+
+.content-page--narrow {
+    width: min(100%, 42rem);
+}
+
+.content-page h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+
+.page-intro {
+    max-width: 42rem;
+    margin: 1.5rem 0 0;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.65;
+    color: var(--muted);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.content-grid--single {
+    grid-template-columns: 1fr;
+    max-width: 38rem;
+}
+
+.content-block {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.25rem;
+}
+
+.content-block h2 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.content-block p {
+    margin: 0.75rem 0 0;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.contact-block {
+    text-align: left;
+}
+
+.contact-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.discord-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--text);
+}
+
+.discord-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.price-tag {
+    margin: 0 0 0.9rem;
+    color: var(--text) !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
 .contact-link {
     display: inline-flex;
     margin-top: 2rem;
@@ -151,11 +283,14 @@ a {
 }
 
 .site-footer {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: end;
     gap: 1rem;
-    padding: 1rem;
     color: var(--muted);
     font-size: 0.92rem;
 }
@@ -163,6 +298,30 @@ a {
 @media (max-width: 640px) {
     .page-shell {
         padding: 0.9rem;
+    }
+
+    .site-header,
+    .site-header__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .site-header {
+        position: static;
+    }
+
+    .page-shell main {
+        min-height: auto;
+        padding: 2rem 0 4rem;
+    }
+
+    .site-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .theme-toggle {
+        justify-content: center;
     }
 
     .theme-toggle {
@@ -174,8 +333,18 @@ a {
         padding: 2rem 0.8rem;
     }
 
+    .content-page {
+        padding: 2.5rem 0.8rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
     .site-footer {
-        padding: 0.8rem;
+        position: static;
+        transform: none;
         align-items: center;
+        margin-top: 1rem;
     }
 }
