@@ -21,10 +21,14 @@
         </div>
 
         <p class="page-intro">
-            <a href="{{ url('/software-development') }}">Need something custom? Contact me.</a>
+            Monthly license available from $10/mo.
         </p>
 
-        <a class="contact-link" href="mailto:joshua@notdone.au">
+        <p class="page-intro">
+            <a href="{{ url('/software-development') }}">Need something custom? See software development.</a>
+        </p>
+
+        <a class="contact-link" href="mailto:hello@notdone.au">
             Request plugin pricing
         </a>
     </section>

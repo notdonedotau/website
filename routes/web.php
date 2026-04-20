@@ -7,5 +7,8 @@ Route::get('/', function () {
 });
 
 Route::view('/software-development', 'software-development');
-Route::view('/blesta-plugins', 'blesta-plugins');
+Route::view('/brands', 'brands');
 Route::view('/contact', 'contact');
+Route::view('/privacy-policy', 'privacy-policy');
+Route::view('/terms-of-service', 'terms-of-service');
+Route::view('/website-disclaimer', 'website-disclaimer');

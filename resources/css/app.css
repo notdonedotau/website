@@ -99,7 +99,10 @@ a {
     align-items: center;
     gap: 1rem;
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .site-nav a:hover,
@@ -110,12 +113,14 @@ a {
 .theme-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--button-bg);
     color: var(--button-text);
-    padding: 0.8rem 1rem;
+    width: 2.9rem;
+    height: 2.9rem;
+    padding: 0;
     font: inherit;
     cursor: pointer;
     transition:
@@ -129,11 +134,42 @@ a {
 }
 
 .theme-toggle__icon {
-    width: 0.9rem;
-    height: 0.9rem;
-    border-radius: 999px;
-    background: currentColor;
-    box-shadow: 0 0 0 0.25rem color-mix(in srgb, currentColor 16%, transparent);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.theme-icon {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+.theme-icon--moon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+:root[data-theme='dark'] .theme-icon--sun {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+:root[data-theme='dark'] .theme-icon--moon {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .page-shell main {
@@ -143,7 +179,7 @@ a {
 }
 
 .hero {
-    width: min(100%, 46rem);
+    width: min(100%, 56rem);
     padding: 1rem;
     text-align: center;
 }
@@ -159,20 +195,21 @@ a {
 
 .hero h1 {
     margin: 0;
-    font-size: clamp(3.5rem, 12vw, 7.5rem);
+    font-size: clamp(3.5rem, 9.6vw, 6.9rem);
     font-weight: 700;
-    line-height: 0.95;
+    line-height: 1;
     letter-spacing: -0.03em;
     text-wrap: balance;
 }
 
 .hero-copy {
     margin: 1.5rem 0 0;
-    max-width: 32rem;
+    max-width: 42rem;
     margin-inline: auto;
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
-    line-height: 1.6;
+    font-size: clamp(1.26rem, 2.16vw, 1.62rem);
+    line-height: 1.7;
     color: var(--muted);
+    text-wrap: balance;
 }
 
 .content-page {
@@ -235,6 +272,61 @@ a {
     text-align: left;
 }
 
+.brand-block {
+    text-align: left;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+.brand-card {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.brand-logo {
+    display: block;
+    width: auto;
+    max-width: min(100%, 14rem);
+    height: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.brand-logo--dark {
+    display: none;
+}
+
+:root[data-theme='dark'] .brand-logo--light {
+    display: none;
+}
+
+:root[data-theme='dark'] .brand-logo--dark {
+    display: block;
+}
+
+.brand-copy {
+    margin: 0;
+    max-width: 34rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.brand-link {
+    display: inline-flex;
+    margin-top: 1.25rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.brand-link:hover {
+    color: var(--text);
+}
+
 .contact-inline {
     display: inline-flex;
     align-items: center;
@@ -282,17 +374,67 @@ a {
     opacity: 0.92;
 }
 
+.legal-page {
+    width: min(100%, 64rem);
+}
+
+.legal-content {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.legal-content section {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.legal-content h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.legal-content p,
+.legal-content li {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.legal-content ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
 .site-footer {
     position: absolute;
     left: 50%;
     bottom: 1.25rem;
     transform: translateX(-50%);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     gap: 1rem;
     color: var(--muted);
     font-size: 0.92rem;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+}
+
+.footer-nav a {
+    text-decoration: none;
+}
+
+.footer-nav a:hover {
+    color: var(--text);
 }
 
 @media (max-width: 640px) {
@@ -322,11 +464,8 @@ a {
 
     .theme-toggle {
         justify-content: center;
-    }
-
-    .theme-toggle {
-        gap: 0.6rem;
-        padding: 0.7rem 0.9rem;
+        width: 2.7rem;
+        height: 2.7rem;
     }
 
     .hero {
@@ -338,6 +477,10 @@ a {
     }
 
     .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brands-grid {
         grid-template-columns: 1fr;
     }
 

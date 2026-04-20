@@ -5,13 +5,13 @@
         <p class="eyebrow">Contact</p>
         <h1>Get in touch.</h1>
         <p class="page-intro">
-            Reach out by email, or message me on Discord.
+            Contact NOT DONE PTY LTD by email, or message the team on Discord.
         </p>
 
         <div class="content-grid content-grid--single">
             <section class="content-block contact-block">
                 <h2>Email</h2>
-                <p>joshua@notdone.au</p>
+                <p>hello@notdone.au</p>
             </section>
 
             <section class="content-block contact-block">
