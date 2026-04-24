@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'blesta' => [
+        'url' => env('BLESTA_URL'),
+        'api_user' => env('BLESTA_API_USER'),
+        'api_key' => env('BLESTA_API_KEY'),
+        'department_id' => env('BLESTA_SUPPORT_DEPARTMENT_ID'),
+    ],
+
 ];

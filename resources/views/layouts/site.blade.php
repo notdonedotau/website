@@ -25,32 +25,36 @@
     <body>
         <div class="page-shell">
             <header class="site-header">
-                <a class="site-mark" href="{{ url('/') }}"> NOT DONE PTY LTD</a>
+                <div class="site-header__inner">
+                    <a class="site-mark" href="{{ url('/') }}" aria-label="NOTDONE home">
+                        <span>NOT</span><span class="site-mark__accent">DONE</span>
+                    </a>
 
-                <div class="site-header__actions">
-                    <nav class="site-nav" aria-label="Primary">
-                        <a href="{{ url('/') }}">Home</a>
-                        <a href="{{ url('/brands') }}">Our Brands</a>
-                        <a href="{{ url('/software-development') }}">Web Development</a>
-                        <a href="{{ url('/contact') }}">Contact</a>
-                    </nav>
-
-                    <button
-                        class="theme-toggle"
-                        type="button"
-                        data-theme-toggle
-                        aria-label="Toggle color theme"
-                        aria-pressed="false"
-                    >
-                        <span class="theme-toggle__icon" aria-hidden="true">
-                            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" focusable="false">
-                                <path d="M12 4V2m0 20v-2m8-8h2M2 12H4m12.95 4.95 1.41 1.41M5.64 5.64l1.41 1.41m9.9-1.41 1.41-1.41M5.64 18.36l1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />
-                            </svg>
-                            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" focusable="false">
-                                <path d="M21 12.79A9 9 0 0 1 11.21 3c0 .34-.03.67-.08 1A9 9 0 1 0 20 12.87c.33-.05.66-.08 1-.08Z" />
-                            </svg>
-                        </span>
-                    </button>
+                    <div class="site-header__actions">
+                        <nav class="site-nav" aria-label="Primary">
+                            <a href="{{ url('/') }}">Home</a>
+                            <a href="{{ route('about') }}">About</a>
+                            <a href="{{ route('products') }}">JMCO.cx</a>
+                            <a href="{{ url('/contact') }}">Contact</a>
+                            <button
+                                class="theme-toggle"
+                                type="button"
+                                data-theme-toggle
+                                aria-label="Toggle color theme"
+                                aria-pressed="false"
+                            >
+                                <span class="theme-toggle__icon" aria-hidden="true">
+                                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" focusable="false">
+                                        <path d="M12 4V2m0 20v-2m8-8h2M2 12H4m12.95 4.95 1.41 1.41M5.64 5.64l1.41 1.41m9.9-1.41 1.41-1.41M5.64 18.36l1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />
+                                    </svg>
+                                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" focusable="false">
+                                        <path d="M21 12.79A9 9 0 0 1 11.21 3c0 .34-.03.67-.08 1A9 9 0 1 0 20 12.87c.33-.05.66-.08 1-.08Z" />
+                                    </svg>
+                                </span>
+                            </button>
+                            <a class="site-nav__button" href="https://account.notdone.au">Account</a>
+                        </nav>
+                    </div>
                 </div>
             </header>
 

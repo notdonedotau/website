@@ -5,29 +5,86 @@
         <p class="eyebrow">Contact</p>
         <h1>Get in touch.</h1>
         <p class="page-intro">
-            Contact NOT DONE PTY LTD by email, or message the team on Discord.
+            Send a message and the team will get back to you. You can also
+            email us directly at <a href="mailto:hello@notdone.au">hello@notdone.au</a>.
         </p>
 
-        <div class="content-grid content-grid--single">
-            <section class="content-block contact-block">
-                <h2>Email</h2>
-                <p>hello@notdone.au</p>
-            </section>
+        @if (session('contact_status'))
+            <div class="form-alert form-alert--success">
+                {{ session('contact_status') }}
+            </div>
+        @endif
 
-            <section class="content-block contact-block">
-                <h2>Discord</h2>
-                <p class="contact-inline">
-                    <span class="discord-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img" focusable="false">
-                            <path
-                                fill="currentColor"
-                                d="M20.3 4.37A16.8 16.8 0 0 0 16.17 3a11.5 11.5 0 0 0-.53 1.1 15.5 15.5 0 0 0-4.67 0A11.5 11.5 0 0 0 10.44 3a16.7 16.7 0 0 0-4.13 1.37C3.7 8.32 2.98 12.16 3.34 15.95a16.9 16.9 0 0 0 5.06 2.55 12.4 12.4 0 0 0 1.08-1.77 10.9 10.9 0 0 1-1.7-.82c.14-.1.27-.2.4-.31a12 12 0 0 0 10.1 0c.13.11.26.21.4.31-.54.32-1.11.59-1.71.82.31.63.67 1.22 1.08 1.77a16.8 16.8 0 0 0 5.07-2.55c.42-4.39-.72-8.2-2.82-11.58ZM9.84 13.63c-.99 0-1.81-.9-1.81-2s.8-2 1.8-2c1.02 0 1.83.9 1.82 2 0 1.1-.8 2-1.8 2Zm4.32 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2c1.02 0 1.83.9 1.82 2 0 1.1-.8 2-1.82 2Z"
-                            />
-                        </svg>
-                    </span>
-                    <span>notdone.au</span>
-                </p>
-            </section>
-        </div>
+        @if (session('contact_error'))
+            <div class="form-alert form-alert--error">
+                {{ session('contact_error') }}
+            </div>
+        @endif
+
+        <form class="contact-form" method="POST" action="{{ route('contact.store') }}">
+            @csrf
+
+            <div class="form-field">
+                <label for="name">Name</label>
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value="{{ old('name') }}"
+                    autocomplete="name"
+                    required
+                >
+                @error('name')
+                    <p class="form-error">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value="{{ old('email') }}"
+                    autocomplete="email"
+                    required
+                >
+                @error('email')
+                    <p class="form-error">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="form-field">
+                <label for="subject">Subject</label>
+                <input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    value="{{ old('subject') }}"
+                    required
+                >
+                @error('subject')
+                    <p class="form-error">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="form-field">
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    required
+                >{{ old('message') }}</textarea>
+                @error('message')
+                    <p class="form-error">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <button class="contact-link contact-form__submit" type="submit">
+                Send message
+            </button>
+        </form>
+
     </section>
 @endsection
