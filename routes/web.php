@@ -8,8 +8,8 @@ Route::get('/', function () {
 });
 
 Route::view('/about', 'about')->name('about');
-Route::view('/software-development', 'software-development');
-Route::view('/products', 'products')->name('products');
+Route::view('/features', 'features')->name('features');
+Route::view('/pricing', 'pricing')->name('pricing');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::view('/privacy-policy', 'privacy-policy');

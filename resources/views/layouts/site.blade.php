@@ -34,7 +34,8 @@
                         <nav class="site-nav" aria-label="Primary">
                             <a href="{{ url('/') }}">Home</a>
                             <a href="{{ route('about') }}">About</a>
-                            <a href="{{ route('products') }}">JMCO.cx</a>
+                            <a href="{{ route('features') }}">Features</a>
+                            <a href="{{ route('pricing') }}">Pricing</a>
                             <a href="{{ url('/contact') }}">Contact</a>
                             <button
                                 class="theme-toggle"
@@ -64,6 +65,12 @@
 
             <footer class="site-footer">
                 <nav class="footer-nav" aria-label="Footer">
+                    <a href="https://status.notdone.au" target="_blank" rel="noreferrer">
+                        <span>Status</span>
+                        <svg class="footer-nav__external-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M7 17 17 7m0 0H9m8 0v8" />
+                        </svg>
+                    </a>
                     <a href="{{ url('/privacy-policy') }}">Privacy Policy</a>
                     <a href="{{ url('/terms-of-service') }}">Terms of Service</a>
                     <a href="{{ url('/website-disclaimer') }}">Website Disclaimer</a>

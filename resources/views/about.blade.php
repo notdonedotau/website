@@ -10,35 +10,33 @@
 
         <div class="prose-content">
             <p>
-                Not Done was built on a simple idea: nothing worth doing is ever
-                truly finished.
+                Not Done was built on a simple belief: the best products are
+                never finished.
             </p>
 
             <p>
-                We started with a focus on delivering practical, reliable
-                digital services for businesses - tools that solve real problems
-                without unnecessary complexity. Over time, that evolved into
-                building platforms like JMCO.cx, designed to help businesses
-                manage, improve, and grow their customer experience.
+                We build tools that help businesses stay transparent with their
+                customers - starting with status pages that evolve as fast as
+                the products behind them.
             </p>
 
             <p>
-                Our approach is straightforward. We do not ship something and
-                walk away. We keep refining, improving, and iterating - because
+                Our approach is straightforward. We do not ship and disappear.
+                We release, learn, and improve - continuously. Because
                 businesses do not stand still, and neither should the tools they
                 rely on.
             </p>
 
-            <p>We believe in:</p>
+            <p>We focus on:</p>
 
             <ul>
-                <li>Building systems that are simple to use, but powerful where it matters</li>
-                <li>Giving customers control over their data and services</li>
+                <li>Building products that are simple to use, but powerful where it matters</li>
+                <li>Giving teams clear visibility into what is happening and what is next</li>
                 <li>Continuously improving everything we deliver</li>
             </ul>
 
             <p>
-                Not Done is not just a name - it is how we operate.
+                Not Done is not just a name. It is how we build.
             </p>
         </div>
     </section>
