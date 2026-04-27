@@ -82,10 +82,6 @@
             </article>
         </div>
 
-        <a class="contact-link" href="{{ route('contact') }}">
-            Talk to us
-        </a>
-
         <section class="pricing-comparison" aria-labelledby="pricing-comparison-heading">
             <div class="section-heading">
                 <p class="eyebrow">Compare Plans</p>

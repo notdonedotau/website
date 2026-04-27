@@ -65,7 +65,7 @@
 
             <footer class="site-footer">
                 <nav class="footer-nav" aria-label="Footer">
-                    <a href="https://status.notdone.au" target="_blank" rel="noreferrer">
+                    <a href="https://not-done.notdone.cloud" target="_blank" rel="noreferrer">
                         <span>Status</span>
                         <svg class="footer-nav__external-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M7 17 17 7m0 0H9m8 0v8" />

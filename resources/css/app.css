@@ -776,6 +776,7 @@ a {
 
 .pricing-page {
     width: min(100%, 72rem);
+    padding-bottom: 7rem;
 }
 
 .pricing-grid {
