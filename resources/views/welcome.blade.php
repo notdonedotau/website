@@ -33,8 +33,8 @@
                     <p>Show public or private components for apps, APIs, regions, infrastructure, or client services.</p>
                 </article>
                 <article class="home-info-card">
-                    <h3>Subscriber notifications</h3>
-                    <p>Keep customers informed through email, Slack, Microsoft Teams, SMS, and web hooks.</p>
+                    <h3>Notifications</h3>
+                    <p>Notify customers by email or SMS. Send alerts to your team via Slack, Teams, or webhooks.</p>
                 </article>
             </div>
         </section>
