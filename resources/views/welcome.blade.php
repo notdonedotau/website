@@ -9,7 +9,7 @@
                 Built for agencies, hosting providers, and SaaS teams.
             </p>
             <div class="home-hero__actions" aria-label="Primary actions">
-                <a class="home-hero__button home-hero__button--primary" href="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=6">
+                <a class="home-hero__button home-hero__button--primary" href="{{ route('get-started') }}">
                     Start your status page
                 </a>
                 <a class="home-hero__button home-hero__button--secondary" href="{{ route('pricing') }}">

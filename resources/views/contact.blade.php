@@ -1,5 +1,15 @@
 @extends('layouts.site')
 
+@php($turnstileSiteKey = config('services.turnstile.site_key'))
+
+@if (filled($turnstileSiteKey))
+    @push('head')
+        @once
+            <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        @endonce
+    @endpush
+@endif
+
 @section('content')
     <section class="content-page content-page--narrow">
         <p class="eyebrow">Contact</p>
@@ -80,6 +90,15 @@
                     <p class="form-error">{{ $message }}</p>
                 @enderror
             </div>
+
+            @if (filled($turnstileSiteKey))
+                <div class="turnstile-field">
+                    <div class="cf-turnstile" data-sitekey="{{ $turnstileSiteKey }}"></div>
+                </div>
+            @endif
+            @error('cf-turnstile-response')
+                <p class="form-error">{{ $message }}</p>
+            @enderror
 
             <button class="contact-link contact-form__submit" type="submit">
                 Send message

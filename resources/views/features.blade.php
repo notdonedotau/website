@@ -12,7 +12,7 @@
                 Not Done starts with simple, clear status pages for incidents,
                 maintenance, uptime, and customer communication.
             </p>
-            <a class="contact-link" href="https://account.notdone.au">
+            <a class="contact-link" href="{{ route('get-started') }}">
                 Get Started
             </a>
         </section>
@@ -116,7 +116,7 @@
             <p class="eyebrow">Start</p>
             <h2 id="features-cta-heading">Give customers a clearer view of your service health.</h2>
             <div class="features-cta__actions">
-                <a class="contact-link" href="https://account.notdone.au">
+                <a class="contact-link" href="{{ route('get-started') }}">
                     Get Started
                 </a>
                 <a class="feature-secondary-link" href="{{ route('pricing') }}">

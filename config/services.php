@@ -40,6 +40,19 @@ return [
         'api_user' => env('BLESTA_API_USER'),
         'api_key' => env('BLESTA_API_KEY'),
         'department_id' => env('BLESTA_SUPPORT_DEPARTMENT_ID'),
+        'client_group_id' => env('BLESTA_CLIENT_GROUP_ID'),
+        'shared_login_key' => env('BLESTA_SHARED_LOGIN_KEY'),
+    ],
+
+    'notdone_admin' => [
+        'slug_availability_url' => env('NOTDONE_ADMIN_SLUG_AVAILABILITY_URL', 'https://admin.notdone.cloud/api/admin/workspaces/slug-availability'),
+        'token' => env('NOTDONE_ADMIN_API_TOKEN'),
+    ],
+
+    'turnstile' => [
+        'site_key' => env('TURNSTILE_SITE_KEY'),
+        'secret_key' => env('TURNSTILE_SECRET_KEY'),
+        'siteverify_url' => 'https://challenges.cloudflare.com/turnstile/v0/siteverify',
     ],
 
 ];

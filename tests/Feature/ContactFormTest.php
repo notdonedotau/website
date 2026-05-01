@@ -3,13 +3,34 @@
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
 
+function validContactPayload(array $overrides = []): array
+{
+    return array_merge([
+        'name' => 'Joshua',
+        'email' => 'joshua@notdone.au',
+        'subject' => 'Hosting question',
+        'message' => 'Can you help with cPanel hosting?',
+        'cf-turnstile-response' => 'valid-turnstile-token',
+    ], $overrides);
+}
+
+beforeEach(function () {
+    config([
+        'services.turnstile.site_key' => 'turnstile-site-key',
+        'services.turnstile.secret_key' => 'turnstile-secret-key',
+    ]);
+});
+
 test('the contact page shows the contact form', function () {
     $response = $this->get('/contact');
 
     $response
         ->assertSuccessful()
         ->assertSee('Send message')
-        ->assertSee('hello@notdone.au')
+        ->assertSee('support@notdone.au')
+        ->assertSee('https://challenges.cloudflare.com/turnstile/v0/api.js', false)
+        ->assertSee('class="cf-turnstile"', false)
+        ->assertSee('data-sitekey="turnstile-site-key"', false)
         ->assertSee('name="email"', false);
 });
 
@@ -22,15 +43,11 @@ test('the contact form opens a blesta ticket', function () {
     ]);
 
     Http::fake([
+        'challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response(['success' => true], 200),
         'account.notdone.au/api/support_manager.support_manager_tickets/add.json' => Http::response(['response' => 123], 200),
     ]);
 
-    $response = $this->from('/contact')->post('/contact', [
-        'name' => 'Joshua',
-        'email' => 'joshua@notdone.au',
-        'subject' => 'Hosting question',
-        'message' => 'Can you help with cPanel hosting?',
-    ]);
+    $response = $this->from('/contact')->post('/contact', validContactPayload());
 
     $response
         ->assertRedirect('/contact')
@@ -48,6 +65,12 @@ test('the contact form opens a blesta ticket', function () {
             && str_contains($request['vars']['details'], 'Can you help with cPanel hosting?')
             && $request['require_email'] === true;
     });
+
+    Http::assertSent(function (Request $request): bool {
+        return $request->url() === 'https://challenges.cloudflare.com/turnstile/v0/siteverify'
+            && $request['secret'] === 'turnstile-secret-key'
+            && $request['response'] === 'valid-turnstile-token';
+    });
 });
 
 test('the contact form validates required fields', function () {
@@ -57,7 +80,23 @@ test('the contact form validates required fields', function () {
 
     $response
         ->assertRedirect('/contact')
-        ->assertInvalid(['name', 'email', 'subject', 'message']);
+        ->assertInvalid(['name', 'email', 'subject', 'message', 'cf-turnstile-response']);
 
     Http::assertNothingSent();
+});
+
+test('the contact form rejects failed turnstile verification', function () {
+    Http::fake([
+        'challenges.cloudflare.com/turnstile/v0/siteverify' => Http::response(['success' => false], 200),
+    ]);
+
+    $response = $this->from('/contact')->post('/contact', validContactPayload());
+
+    $response
+        ->assertRedirect('/contact')
+        ->assertInvalid([
+            'cf-turnstile-response' => 'Please complete the security check and try again.',
+        ]);
+
+    Http::assertNotSent(fn (Request $request): bool => $request->url() === 'https://account.notdone.au/api/support_manager.support_manager_tickets/add.json');
 });

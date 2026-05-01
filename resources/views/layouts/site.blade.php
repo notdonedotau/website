@@ -21,6 +21,7 @@
         </script>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('head')
     </head>
     <body>
         <div class="page-shell">

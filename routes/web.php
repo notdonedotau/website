@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GetStartedController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,6 +11,8 @@ Route::get('/', function () {
 Route::view('/about', 'about')->name('about');
 Route::view('/features', 'features')->name('features');
 Route::view('/pricing', 'pricing')->name('pricing');
+Route::get('/get-started', [GetStartedController::class, 'create'])->name('get-started');
+Route::post('/get-started', [GetStartedController::class, 'store'])->name('get-started.store');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::view('/privacy-policy', 'privacy-policy');

@@ -12,7 +12,13 @@
             control, and team features as your service grows.
         </p>
         <div class="pricing-notes" aria-label="Pricing offers">
-            <p>Monthly plans include a 30-day free trial.</p>
+            <p class="trial-note">
+                <svg class="trial-note__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3.5 7.5A2.5 2.5 0 0 1 6 5h12a2.5 2.5 0 0 1 2.5 2.5v9A2.5 2.5 0 0 1 18 19H6a2.5 2.5 0 0 1-2.5-2.5v-9Z" />
+                    <path d="M3.5 9h17M7 15h3" />
+                </svg>
+                <span>No credit card required. 1-month free trial.</span>
+            </p>
             <p>Annual plans include two months off.</p>
         </div>
         <div class="pricing-period-toggle" role="group" aria-label="Choose billing period">
@@ -45,8 +51,8 @@
                 </ul>
                 <a
                     class="pricing-card__order"
-                    href="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=4"
-                    data-monthly-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=4"
+                    href="{{ route('get-started', ['plan' => 'starter']) }}"
+                    data-monthly-url="{{ route('get-started', ['plan' => 'starter']) }}"
                     data-annual-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=5"
                 >
                     Get Started
@@ -75,8 +81,8 @@
                 </ul>
                 <a
                     class="pricing-card__order"
-                    href="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=6"
-                    data-monthly-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=6"
+                    href="{{ route('get-started') }}"
+                    data-monthly-url="{{ route('get-started') }}"
                     data-annual-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=7"
                 >
                     Get Started
@@ -104,8 +110,8 @@
                 </ul>
                 <a
                     class="pricing-card__order"
-                    href="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=8"
-                    data-monthly-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=8"
+                    href="{{ route('get-started', ['plan' => 'business']) }}"
+                    data-monthly-url="{{ route('get-started', ['plan' => 'business']) }}"
                     data-annual-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=9"
                 >
                     Get Started
