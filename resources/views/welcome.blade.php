@@ -1,4 +1,7 @@
-@extends('layouts.site')
+@extends('layouts.site', [
+    'title' => config('app.name'),
+    'description' => 'Status pages for agencies, hosting providers, and SaaS teams.',
+])
 
 @section('content')
     <div class="home-page">

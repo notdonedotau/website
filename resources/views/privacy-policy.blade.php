@@ -1,4 +1,7 @@
-@extends('layouts.site')
+@extends('layouts.site', [
+    'title' => 'Privacy Policy | '.config('app.name'),
+    'description' => 'Privacy policy for Not Done.',
+])
 
 @section('content')
     <section class="content-page legal-page">

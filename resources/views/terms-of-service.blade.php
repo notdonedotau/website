@@ -1,4 +1,7 @@
-@extends('layouts.site')
+@extends('layouts.site', [
+    'title' => 'Terms of Service | '.config('app.name'),
+    'description' => 'Terms of service for Not Done.',
+])
 
 @section('content')
     <section class="content-page legal-page">

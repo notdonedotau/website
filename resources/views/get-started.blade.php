@@ -278,7 +278,7 @@
 @endphp
 
 @extends('layouts.site', [
-    'title' => 'Get Started | notdone.au',
+    'title' => 'Get Started | '.config('app.name'),
     'description' => 'Start a 1-month free trial of Not Done. No credit card required.',
 ])
 

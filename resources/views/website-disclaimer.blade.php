@@ -1,4 +1,7 @@
-@extends('layouts.site')
+@extends('layouts.site', [
+    'title' => 'Website Disclaimer | '.config('app.name'),
+    'description' => 'Website disclaimer for Not Done.',
+])
 
 @section('content')
     <section class="content-page legal-page">

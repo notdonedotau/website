@@ -1,5 +1,5 @@
 @extends('layouts.site', [
-    'title' => 'About Us | notdone.au',
+    'title' => 'About Us | '.config('app.name'),
     'description' => 'About Not Done Pty Ltd.',
 ])
 

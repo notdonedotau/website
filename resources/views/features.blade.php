@@ -1,5 +1,5 @@
 @extends('layouts.site', [
-    'title' => 'Features | notdone.au',
+    'title' => 'Features | '.config('app.name'),
     'description' => 'Status pages for teams that keep shipping.',
 ])
 

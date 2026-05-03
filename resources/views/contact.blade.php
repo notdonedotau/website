@@ -1,4 +1,7 @@
-@extends('layouts.site')
+@extends('layouts.site', [
+    'title' => 'Contact | '.config('app.name'),
+    'description' => 'Contact the Not Done team.',
+])
 
 @php($turnstileSiteKey = app(\App\Services\Turnstile::class)->enabled() ? config('services.turnstile.site_key') : null)
 

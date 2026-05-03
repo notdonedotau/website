@@ -1,5 +1,5 @@
 @extends('layouts.site', [
-    'title' => 'Pricing | notdone.au',
+    'title' => 'Pricing | '.config('app.name'),
     'description' => 'Simple pricing for Not Done status pages.',
 ])
 
