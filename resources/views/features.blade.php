@@ -17,6 +17,8 @@
             </a>
         </section>
 
+        @include('partials.product-notice')
+
         <section class="feature-section" aria-labelledby="pillars-heading">
             <div class="section-heading">
                 <p class="eyebrow">Core Pillars</p>

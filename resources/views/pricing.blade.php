@@ -11,6 +11,9 @@
             Start with a clear status page, then add custom domains, branding
             control, and team features as your service grows.
         </p>
+
+        @include('partials.product-notice')
+
         <div class="pricing-notes" aria-label="Pricing offers">
             <p class="trial-note">
                 <svg class="trial-note__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -107,6 +110,7 @@
                     <li>Web hooks</li>
                     <li>Custom CSS/HTML/JS</li>
                     <li>Custom roles</li>
+                    <li>Audit logs</li>
                 </ul>
                 <a
                     class="pricing-card__order"
@@ -300,8 +304,17 @@
                             <td><span class="pricing-table__icon pricing-table__icon--no" role="img" aria-label="Not included"></span></td>
                             <td><span class="pricing-table__icon pricing-table__icon--yes" role="img" aria-label="Included"></span></td>
                         </tr>
+                        <tr class="pricing-table__section">
+                            <th colspan="4">Security &amp; Administration</th>
+                        </tr>
                         <tr>
                             <th scope="row">Custom roles</th>
+                            <td><span class="pricing-table__icon pricing-table__icon--no" role="img" aria-label="Not included"></span></td>
+                            <td><span class="pricing-table__icon pricing-table__icon--no" role="img" aria-label="Not included"></span></td>
+                            <td><span class="pricing-table__icon pricing-table__icon--yes" role="img" aria-label="Included"></span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Audit logs</th>
                             <td><span class="pricing-table__icon pricing-table__icon--no" role="img" aria-label="Not included"></span></td>
                             <td><span class="pricing-table__icon pricing-table__icon--no" role="img" aria-label="Not included"></span></td>
                             <td><span class="pricing-table__icon pricing-table__icon--yes" role="img" aria-label="Included"></span></td>

@@ -55,6 +55,7 @@
                                 </span>
                             </button>
                             <a class="site-nav__button" href="https://account.notdone.cloud">Account</a>
+                            <a class="site-nav__button site-nav__button--primary" href="{{ route('get-started') }}">Get Started</a>
                         </nav>
                     </div>
                 </div>
@@ -79,5 +80,8 @@
                 <span>&copy; NOT DONE PTY LTD {{ now()->year }}</span>
             </footer>
         </div>
+        <!-- BEGIN ProvideSupport.com Graphics Chat Button Code -->
+<script>(function(D){function f(){function n(n,e){e=D.createElement("script");e.src="https://image.providesupport.com/"+n,D.body.appendChild(e)}n("js/0u8tves5jzg801nvpob360sdyy/safe-standard-sync.js?ps_h=rchx&ps_t="+Date.now()),n("sjs/static.js")}D.readyState=="complete"?f():window.addEventListener("load",f)})(document)</script><noscript><div style="display:inline"><a href="https://vm.providesupport.com/0u8tves5jzg801nvpob360sdyy">Chat Support</a></div></noscript>
+<!-- END ProvideSupport.com Graphics Chat Button Code -->
     </body>
 </html>

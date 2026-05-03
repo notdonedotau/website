@@ -233,6 +233,17 @@ a:hover {
     color: var(--accent) !important;
 }
 
+.site-nav__button--primary {
+    border-color: var(--accent);
+    background: var(--link-bg);
+    color: var(--link-text) !important;
+}
+
+.site-nav__button--primary:hover {
+    background: color-mix(in srgb, var(--link-bg) 88%, #000000);
+    color: var(--link-text) !important;
+}
+
 .theme-toggle {
     display: inline-flex;
     align-items: center;
@@ -566,6 +577,50 @@ a:hover {
     margin: 0.75rem 0 0;
     color: var(--muted);
     line-height: 1.6;
+}
+
+.product-notice {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    max-width: 54rem;
+    margin: 2rem 0 0;
+    border: 1px solid color-mix(in srgb, #d97706 22%, var(--border));
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, #fef3c7 36%, var(--bg));
+    padding: 1rem;
+    color: var(--text);
+    text-align: left;
+}
+
+.product-notice__icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.2rem;
+    color: #b45309;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.product-notice p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.product-notice a {
+    color: var(--accent);
+    font-weight: 800;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+.product-notice a:hover {
+    color: var(--text);
 }
 
 .content-grid {
@@ -1183,6 +1238,11 @@ a:hover {
 }
 
 .pricing-page .page-intro {
+    margin-inline: auto;
+}
+
+.pricing-page .product-notice,
+.get-started-page .product-notice {
     margin-inline: auto;
 }
 

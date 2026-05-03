@@ -300,6 +300,8 @@
             </p>
         </div>
 
+        @include('partials.product-notice')
+
         @if (session('get_started_status'))
             <div class="form-alert form-alert--success">
                 {{ session('get_started_status') }}

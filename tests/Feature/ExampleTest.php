@@ -15,6 +15,8 @@ test('the application returns a successful response', function () {
         ->assertDontSee('home-service-card')
         ->assertDontSee('Development')
         ->assertDontSee('Products')
+        ->assertSeeInOrder(['Account', 'Get Started'])
+        ->assertSee('href="'.route('get-started').'"', false)
         ->assertSee('/get-started', false)
         ->assertDontSee('/domains', false)
         ->assertDontSee('/cpanel-web-hosting', false);
