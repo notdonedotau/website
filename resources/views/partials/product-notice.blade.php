@@ -5,6 +5,6 @@
         <path d="M12 7.25h.01" />
     </svg>
     <p>
-        A quick note: Not Done is actively being developed, and some features shown on this page may still be in progress, limited, or rolling out over time. You’re welcome to sign up and start using Not Done today. If a specific feature is important to your team, please <a href="{{ route('contact') }}">contact us</a> so we know what matters most to you.
+        A quick note: Not Done is actively being developed, and some features shown on this page may still be in progress, limited, or rolling out over time. You’re welcome to sign up and start using Not Done today. If a specific feature is important to you and/or your team, please <a href="{{ route('contact') }}">contact us</a> so we know what matters most to you.
     </p>
 </aside>
