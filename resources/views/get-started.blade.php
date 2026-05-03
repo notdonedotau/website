@@ -274,7 +274,7 @@
 
     $selectedPlan = str($errors->any() ? old('plan', 'growth') : request()->string('plan')->lower()->value())->lower()->value();
     $selectedPlan = array_key_exists($selectedPlan, $plans) ? $selectedPlan : 'growth';
-    $turnstileSiteKey = config('services.turnstile.site_key');
+    $turnstileSiteKey = app(\App\Services\Turnstile::class)->enabled() ? config('services.turnstile.site_key') : null;
 @endphp
 
 @extends('layouts.site', [

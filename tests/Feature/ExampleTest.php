@@ -22,6 +22,8 @@ test('the application returns a successful response', function () {
 
 test('the get started page defaults to the growth trial', function () {
     config(['services.turnstile.site_key' => 'turnstile-site-key']);
+    config(['services.turnstile.secret_key' => 'turnstile-secret-key']);
+    config(['app.debug' => false]);
 
     $response = $this->get('/get-started');
 

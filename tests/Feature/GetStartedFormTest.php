@@ -42,6 +42,7 @@ function assertRedirectsToBlestaSharedLogin($response, string $username = 'joshu
 
 beforeEach(function () {
     config([
+        'app.debug' => false,
         'services.blesta.url' => 'https://account.notdone.au',
         'services.blesta.api_user' => 'api-user',
         'services.blesta.api_key' => 'api-key',
@@ -258,6 +259,29 @@ test('the get started form validates required fields before calling external ser
         ->assertInvalid(['first_name', 'last_name', 'email', 'password', 'mobile', 'status_page_name', 'terms_accepted', 'cf-turnstile-response']);
 
     Http::assertNothingSent();
+});
+
+test('the get started form hides and skips turnstile while debug is enabled', function () {
+    config(['app.debug' => true]);
+
+    $this->get('/get-started')
+        ->assertSuccessful()
+        ->assertDontSee('https://challenges.cloudflare.com/turnstile/v0/api.js', false)
+        ->assertDontSee('class="cf-turnstile"', false);
+
+    Http::fake([
+        'admin.notdone.cloud/api/admin/workspaces/slug-availability' => Http::response(['available' => true], 200),
+        'account.notdone.au/api/clients/create.json' => Http::response(['response' => ['id' => 321]], 200),
+        'account.notdone.au/api/services/add.json' => Http::response(['response' => 123], 200),
+    ]);
+
+    $response = $this->from('/get-started')->post('/get-started', validGetStartedPayload([
+        'cf-turnstile-response' => null,
+    ]));
+
+    assertRedirectsToBlestaSharedLogin($response);
+
+    Http::assertNotSent(fn (Request $request): bool => $request->url() === 'https://challenges.cloudflare.com/turnstile/v0/siteverify');
 });
 
 test('the get started form requires password confirmation', function () {

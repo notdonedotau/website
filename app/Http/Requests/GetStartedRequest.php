@@ -21,7 +21,7 @@ class GetStartedRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'first_name' => ['required', 'string', 'max:120'],
             'last_name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:255'],
@@ -34,8 +34,13 @@ class GetStartedRequest extends FormRequest
             'plan' => ['required', Rule::in(array_keys($this->planPricingIds()))],
             'pricing_id' => ['required', 'string'],
             'terms_accepted' => ['accepted'],
-            'cf-turnstile-response' => ['required', 'string', 'max:2048'],
         ];
+
+        if (app(Turnstile::class)->enabled()) {
+            $rules['cf-turnstile-response'] = ['required', 'string', 'max:2048'];
+        }
+
+        return $rules;
     }
 
     public function after(): array
@@ -52,7 +57,9 @@ class GetStartedRequest extends FormRequest
                     return;
                 }
 
-                if (! app(Turnstile::class)->verify($this->string('cf-turnstile-response')->value(), $this->ip())) {
+                $turnstile = app(Turnstile::class);
+
+                if ($turnstile->enabled() && ! $turnstile->verify($this->string('cf-turnstile-response')->value(), $this->ip())) {
                     $validator->errors()->add('cf-turnstile-response', 'Please complete the security check and try again.');
                 }
             },

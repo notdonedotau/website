@@ -1,6 +1,6 @@
 @extends('layouts.site')
 
-@php($turnstileSiteKey = config('services.turnstile.site_key'))
+@php($turnstileSiteKey = app(\App\Services\Turnstile::class)->enabled() ? config('services.turnstile.site_key') : null)
 
 @if (filled($turnstileSiteKey))
     @push('head')

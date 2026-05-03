@@ -8,11 +8,22 @@ use Throwable;
 
 class Turnstile
 {
+    public function enabled(): bool
+    {
+        return ! config('app.debug')
+            && filled(config('services.turnstile.site_key'))
+            && filled(config('services.turnstile.secret_key'));
+    }
+
     /**
      * @param  array{secret_key: string|null, siteverify_url: string|null}  $config
      */
     public function verify(string $token, ?string $remoteIp = null, ?array $config = null): bool
     {
+        if (! $this->enabled()) {
+            return true;
+        }
+
         $config ??= config('services.turnstile');
 
         if (blank($token) || ! $this->hasConfig($config)) {

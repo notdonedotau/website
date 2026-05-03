@@ -24,13 +24,18 @@ class ContactFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email:rfc', 'max:255'],
             'subject' => ['required', 'string', 'max:160'],
             'message' => ['required', 'string', 'max:5000'],
-            'cf-turnstile-response' => ['required', 'string', 'max:2048'],
         ];
+
+        if (app(Turnstile::class)->enabled()) {
+            $rules['cf-turnstile-response'] = ['required', 'string', 'max:2048'];
+        }
+
+        return $rules;
     }
 
     public function after(): array
@@ -41,7 +46,9 @@ class ContactFormRequest extends FormRequest
                     return;
                 }
 
-                if (! app(Turnstile::class)->verify($this->string('cf-turnstile-response')->value(), $this->ip())) {
+                $turnstile = app(Turnstile::class);
+
+                if ($turnstile->enabled() && ! $turnstile->verify($this->string('cf-turnstile-response')->value(), $this->ip())) {
                     $validator->errors()->add('cf-turnstile-response', 'Please complete the security check and try again.');
                 }
             },
