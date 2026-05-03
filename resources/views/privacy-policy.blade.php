@@ -55,7 +55,7 @@
             </section>
             <section>
                 <h2>Contact Us</h2>
-                <p>If you have any questions or concerns at any time about our privacy policy or the use of your Personal Data, please contact us at <a href="mailto:hello@notdone.au">hello@notdone.au</a> and we will respond within 48 hours.</p>
+                <p>If you have any questions or concerns at any time about our privacy policy or the use of your Personal Data, please contact us at <a href="mailto:support@notdone.cloud">support@notdone.cloud</a> and we will respond within 48 hours.</p>
             </section>
         </div>
     </section>
