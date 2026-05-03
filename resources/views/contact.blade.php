@@ -16,7 +16,7 @@
         <h1>Get in touch.</h1>
         <p class="page-intro">
             Send a message and the team will get back to you. You can also
-            email us directly at <a href="mailto:support@notdone.au">support@notdone.au</a>.
+            email us directly at <a href="mailto:support@notdone.cloud">support@notdone.cloud</a>.
         </p>
 
         @if (session('contact_status'))
