@@ -31,7 +31,7 @@ class BlestaClient
         $config = config('services.blesta');
 
         if (! $this->hasSharedLoginConfig($config)) {
-            throw new RuntimeException('Your trial was created, but we could not log you in automatically. Please log in at account.notdone.au.');
+            throw new RuntimeException('Your trial was created, but we could not log you in automatically. Please log in at account.notdone.cloud.');
         }
 
         $timestamp = (string) now()->timestamp;

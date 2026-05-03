@@ -53,7 +53,7 @@
                     class="pricing-card__order"
                     href="{{ route('get-started', ['plan' => 'starter']) }}"
                     data-monthly-url="{{ route('get-started', ['plan' => 'starter']) }}"
-                    data-annual-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=5"
+                    data-annual-url="{{ route('get-started', ['plan' => 'starter']) }}"
                 >
                     Get Started
                 </a>
@@ -83,7 +83,7 @@
                     class="pricing-card__order"
                     href="{{ route('get-started') }}"
                     data-monthly-url="{{ route('get-started') }}"
-                    data-annual-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=7"
+                    data-annual-url="{{ route('get-started') }}"
                 >
                     Get Started
                 </a>
@@ -112,7 +112,7 @@
                     class="pricing-card__order"
                     href="{{ route('get-started', ['plan' => 'business']) }}"
                     data-monthly-url="{{ route('get-started', ['plan' => 'business']) }}"
-                    data-annual-url="https://account.notdone.au/order/config/index/subscription/?group_id=2&amp;pricing_id=9"
+                    data-annual-url="{{ route('get-started', ['plan' => 'business']) }}"
                 >
                     Get Started
                 </a>
