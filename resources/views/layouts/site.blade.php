@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ $title ?? 'notdone.au' }}</title>
+        <title>{{ $title ?? 'notdone.cloud' }}</title>
         <meta
             name="description"
-            content="{{ $description ?? 'notdone.au' }}"
+            content="{{ $description ?? 'notdone.cloud' }}"
         >
 
         <script>
