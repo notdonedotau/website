@@ -54,7 +54,6 @@
                                     </svg>
                                 </span>
                             </button>
-                            <a class="site-nav__button" href="https://account.notdone.cloud">Account</a>
                             <a class="site-nav__button site-nav__button--primary" href="{{ route('get-started') }}">Get Started</a>
                         </nav>
                     </div>
@@ -66,18 +65,98 @@
             </main>
 
             <footer class="site-footer">
-                <nav class="footer-nav" aria-label="Footer">
-                    <a href="https://not-done.status.notdone.cloud" target="_blank" rel="noreferrer">
-                        <span>Status</span>
-                        <svg class="footer-nav__external-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M7 17 17 7m0 0H9m8 0v8" />
-                        </svg>
-                    </a>
-                    <a href="{{ url('/privacy-policy') }}">Privacy Policy</a>
-                    <a href="{{ url('/terms-of-service') }}">Terms of Service</a>
-                    <a href="{{ url('/website-disclaimer') }}">Website Disclaimer</a>
-                </nav>
-                <span>&copy; NOT DONE PTY LTD {{ now()->year }}</span>
+                <div class="site-footer__inner">
+                    <div class="site-footer__brand">
+                        <a class="site-footer__mark" href="{{ url('/') }}" aria-label="NOTDONE home">
+                            <span>NOT</span><span>DONE</span>
+                        </a>
+                        <p>Simple hosted status pages for teams that need clear incident communication.</p>
+                    </div>
+
+                    <nav class="site-footer__group" aria-label="Product">
+                        <h2>Product</h2>
+                        <a href="{{ route('features') }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M4 6h16M4 12h16M4 18h10" />
+                            </svg>
+                            <span>Features</span>
+                        </a>
+                        <a href="{{ route('pricing') }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M12 2v20m5-17H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                            <span>Pricing</span>
+                        </a>
+                        <a href="{{ route('get-started') }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M5 12h14m-6-6 6 6-6 6" />
+                            </svg>
+                            <span>Get Started</span>
+                        </a>
+                        <a href="https://not-done.status.notdone.cloud" target="_blank" rel="noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M7 17 17 7m0 0H9m8 0v8" />
+                            </svg>
+                            <span>Status</span>
+                        </a>
+                    </nav>
+
+                    <nav class="site-footer__group" aria-label="Company">
+                        <h2>Company</h2>
+                        <a href="{{ route('about') }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M12 17v-5m0-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <span>About</span>
+                        </a>
+                        <a href="{{ route('blog.index') }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z" />
+                            </svg>
+                            <span>Blog</span>
+                        </a>
+                        <a href="https://account.notdone.cloud">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M20 21a8 8 0 0 0-16 0m12-13a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+                            </svg>
+                            <span>Account Login</span>
+                        </a>
+                    </nav>
+
+                    <address class="site-footer__group site-footer__contact">
+                        <h2>Contact</h2>
+                        <span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                                <path d="M12 10h.01" />
+                            </svg>
+                            <span>Perth, Western Australia</span>
+                        </span>
+                        <a href="{{ route('contact') }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" />
+                            </svg>
+                            <span>Contact us</span>
+                        </a>
+                        <a href="https://abr.business.gov.au/ABN/View?abn=43697288583" target="_blank" rel="noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M14 3h7v7" />
+                                <path d="M10 14 21 3" />
+                                <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+                            </svg>
+                            <span>ABN 43 697 288 583</span>
+                        </a>
+                    </address>
+                </div>
+
+                <div class="site-footer__bottom">
+                    <span>&copy; {{ now()->year }} NOT DONE PTY LTD. All rights reserved.</span>
+                    <nav class="site-footer__legal" aria-label="Legal">
+                        <a href="{{ url('/terms-of-service') }}">Terms of Service</a>
+                        <a href="{{ url('/privacy-policy') }}">Privacy Policy</a>
+                        <a href="{{ url('/website-disclaimer') }}">Website Disclaimer</a>
+                    </nav>
+                </div>
             </footer>
         </div>
         <!-- BEGIN ProvideSupport.com Graphics Chat Button Code -->

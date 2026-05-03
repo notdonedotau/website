@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
+
 test('page titles use the configured app name', function (string $path, string $titlePrefix) {
     config(['app.name' => 'Example Status']);
 
@@ -11,6 +15,7 @@ test('page titles use the configured app name', function (string $path, string $
     'about' => ['/about', 'About Us | '],
     'features' => ['/features', 'Features | '],
     'pricing' => ['/pricing', 'Pricing | '],
+    'blog' => ['/blog', 'Blog | '],
     'get started' => ['/get-started', 'Get Started | '],
     'contact' => ['/contact', 'Contact | '],
     'privacy policy' => ['/privacy-policy', 'Privacy Policy | '],
