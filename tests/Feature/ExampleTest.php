@@ -17,6 +17,7 @@ test('the application returns a successful response', function () {
         ->assertDontSee('Products')
         ->assertSeeInOrder(['Account', 'Get Started'])
         ->assertSee('href="'.route('get-started').'"', false)
+        ->assertSee('https://not-done.status.notdone.cloud', false)
         ->assertSee('/get-started', false)
         ->assertDontSee('/domains', false)
         ->assertDontSee('/cpanel-web-hosting', false);
@@ -48,6 +49,7 @@ test('the get started page defaults to the growth trial', function () {
         ->assertSee('Japan')
         ->assertSee('Status Page Name')
         ->assertSee('Your generated page')
+        ->assertSee('acme.status.notdone.cloud')
         ->assertSee('data-submit-label', false)
         ->assertSee('https://challenges.cloudflare.com/turnstile/v0/api.js', false)
         ->assertSee('class="cf-turnstile"', false)

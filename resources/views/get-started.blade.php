@@ -446,7 +446,7 @@
 
                     <div class="slug-preview" aria-live="polite">
                         <span>Your generated page</span>
-                        <output data-status-page-slug-output>your-status-page.notdone.cloud</output>
+                        <output data-status-page-slug-output>acme.status.notdone.cloud</output>
                     </div>
                 </section>
             </div>

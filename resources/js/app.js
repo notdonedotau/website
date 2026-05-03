@@ -80,14 +80,14 @@ if (getStartedForm) {
             .replace(/^-+|-+$/g, '')
             .slice(0, 63);
 
-        return slug || 'your-status-page';
+        return slug || 'acme';
     };
 
     const syncSlug = () => {
         const slug = slugify(statusPageNameInput.value);
 
         statusPageSlugInput.value = slug;
-        statusPageSlugOutput.textContent = `${slug}.notdone.cloud`;
+        statusPageSlugOutput.textContent = `${slug}.status.notdone.cloud`;
     };
 
     const syncPlan = () => {
