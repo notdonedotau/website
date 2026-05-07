@@ -49,6 +49,7 @@ class BlogController extends Controller
         $escapedCategory = e($category);
         $escapedDate = e($date);
         $escapedTitle = e($article->title);
+        $logoSvg = $this->logoSvg();
 
         $titleSvg = collect($titleLines)
             ->map(fn (string $line, int $index): string => sprintf(
@@ -64,7 +65,7 @@ class BlogController extends Controller
     <rect width="1200" height="630" fill="#fde6d8" opacity="0.34"/>
     <circle cx="1020" cy="150" r="118" fill="#e4572e" opacity="0.13"/>
     <circle cx="1100" cy="515" r="168" fill="#e4572e" opacity="0.09"/>
-    <text x="88" y="142" fill="#0b0b0b" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="42" font-weight="800" letter-spacing="1.5">NOT<tspan fill="#e4572e">DONE</tspan></text>
+    {$logoSvg}
     <text x="88" y="238" fill="#6b7280" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="800" letter-spacing="4" text-transform="uppercase">{$escapedCategory} / {$escapedDate}</text>
     <text fill="#0b0b0b" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="800" letter-spacing="-0.6">{$titleSvg}</text>
     <rect x="88" y="520" width="180" height="8" rx="4" fill="#e4572e"/>
@@ -91,5 +92,20 @@ SVG;
         $lines[$maxLines - 1] = Str::of($lines[$maxLines - 1])->limit($lineLength - 1)->toString();
 
         return $lines;
+    }
+
+    private function logoSvg(): string
+    {
+        $path = public_path('images/logo-dm.svg');
+
+        if (! is_file($path)) {
+            return '<text x="88" y="142" fill="#0b0b0b" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \'Segoe UI\', sans-serif" font-size="42" font-weight="800" letter-spacing="1.5">NOT<tspan fill="#e4572e">DONE</tspan></text>';
+        }
+
+        $dataUri = 'data:image/svg+xml;base64,'.base64_encode((string) file_get_contents($path));
+
+        return <<<SVG
+<image href="{$dataUri}" x="88" y="94" width="330" height="70" preserveAspectRatio="xMinYMid meet"/>
+SVG;
     }
 }

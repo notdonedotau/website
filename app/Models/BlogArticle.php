@@ -16,7 +16,7 @@ class BlogArticle extends Model
     /** @use HasFactory<BlogArticleFactory> */
     use HasFactory;
 
-    private const GENERATED_OG_IMAGE_VERSION = 2;
+    private const GENERATED_OG_IMAGE_VERSION = 3;
 
     /**
      * @return BelongsTo<BlogCategory, $this>

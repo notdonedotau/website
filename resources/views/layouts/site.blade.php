@@ -9,6 +9,15 @@
             name="description"
             content="{{ $description ?? config('app.name') }}"
         >
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" media="(prefers-color-scheme: light)">
+
+        <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
+        <link rel="mask-icon" href="{{ asset('images/logo.svg') }}" color="#e4572e">
+        <meta name="msapplication-TileImage" content="{{ asset('favicon.png') }}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
 
         <script>
             (() => {
@@ -28,7 +37,8 @@
             <header class="site-header">
                 <div class="site-header__inner">
                     <a class="site-mark" href="{{ url('/') }}" aria-label="NOTDONE home">
-                        <span>NOT</span><span class="site-mark__accent">DONE</span>
+                        <img class="site-logo site-logo--light" src="{{ asset('images/logo-dm.svg') }}" alt="NOTDONE">
+                        <img class="site-logo site-logo--dark" src="{{ asset('images/logo.svg') }}" alt="NOTDONE">
                     </a>
 
                     <div class="site-header__actions">
@@ -68,7 +78,8 @@
                 <div class="site-footer__inner">
                     <div class="site-footer__brand">
                         <a class="site-footer__mark" href="{{ url('/') }}" aria-label="NOTDONE home">
-                            <span>NOT</span><span>DONE</span>
+                            <img class="site-logo site-logo--light" src="{{ asset('images/logo-dm.svg') }}" alt="NOTDONE">
+                            <img class="site-logo site-logo--dark" src="{{ asset('images/logo.svg') }}" alt="NOTDONE">
                         </a>
                         <p>Simple hosted status pages for teams that need clear incident communication.</p>
                     </div>

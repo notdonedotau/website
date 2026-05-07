@@ -120,14 +120,8 @@ a:hover {
 .site-mark {
     display: inline-flex;
     align-items: center;
-    color: var(--text);
-    font-size: 2.03rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-}
-
-.site-mark__accent {
-    color: var(--accent);
+    width: 11.75rem;
+    height: 2.55rem;
 }
 
 .site-nav {
@@ -1955,16 +1949,29 @@ a:hover {
 
 .site-footer__mark {
     display: inline-flex;
-    color: var(--footer-heading);
-    font-size: 2.15rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    line-height: 1;
+    width: 12.25rem;
+    height: 2.65rem;
     text-decoration: none;
 }
 
-.site-footer__mark span:last-child {
-    color: var(--accent);
+.site-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.site-logo--dark {
+    display: none;
+}
+
+:root[data-theme='dark'] .site-logo--light {
+    display: none;
+}
+
+:root[data-theme='dark'] .site-logo--dark {
+    display: block;
 }
 
 .site-footer__brand p {

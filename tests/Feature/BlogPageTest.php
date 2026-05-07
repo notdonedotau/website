@@ -82,7 +82,7 @@ test('articles without an uploaded image use a generated og image', function () 
         ->assertSee('<meta property="og:image" content="'.$generatedImageUrl.'">', false)
         ->assertDontSee('<img src="'.$generatedImageUrl.'" alt="">', false)
         ->assertDontSee('class="blog-article-image"', false)
-        ->assertSee('?v=2', false);
+        ->assertSee('?v=3', false);
 });
 
 test('the blog article page shows published article content', function () {
@@ -131,6 +131,8 @@ test('the generated og image endpoint returns an svg for published articles', fu
         ->assertHeader('Content-Type', 'image/svg+xml')
         ->assertHeaderContains('Cache-Control', 'no-cache')
         ->assertSee('<svg', false)
+        ->assertSee('data:image/svg+xml;base64', false)
+        ->assertDontSee('>NOT<tspan', false)
         ->assertSee('<rect width="1200" height="630" fill="#fff7f2"/>', false)
         ->assertDontSee('<rect width="1200" height="630" fill="#0b0b0b"/>', false)
         ->assertSee('Generated images keep previews consistent')
