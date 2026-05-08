@@ -43,6 +43,34 @@ test('verified notdone users can access their filament profile page', function (
         ->assertSee('Profile');
 });
 
+test('authenticated admin users can access docs management resources', function (string $path, string $heading) {
+    $user = User::factory()->create([
+        'email' => 'docs-admin@notdone.cloud',
+    ]);
+
+    $this->actingAs($user)
+        ->get($path)
+        ->assertSuccessful()
+        ->assertSee($heading);
+})->with([
+    'doc articles' => ['/manage/doc-articles', 'Doc Articles'],
+    'doc categories' => ['/manage/doc-categories', 'Doc Categories'],
+]);
+
+test('the docs article form uses markdown content and seo fields', function () {
+    $user = User::factory()->create([
+        'email' => 'docs-editor@notdone.cloud',
+    ]);
+
+    $this->actingAs($user)
+        ->get('/manage/doc-articles/create')
+        ->assertSuccessful()
+        ->assertSee('content')
+        ->assertSee('Write documentation in Markdown.')
+        ->assertSee('meta_title')
+        ->assertSee('last_reviewed_at');
+});
+
 test('guests are redirected away from blog management resources', function () {
     $this->get('/manage/blog-articles')
         ->assertRedirect();

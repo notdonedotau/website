@@ -5,7 +5,7 @@
 
 @section('content')
     <section class="content-page pricing-page">
-        <p class="eyebrow">Pricing</p>
+        <p class="eyebrow">Status Page Pricing</p>
         <h1>Plans for keeping customers in the loop.</h1>
         <p class="page-intro">
             Start with a clear status page, then add custom domains, branding

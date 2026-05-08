@@ -133,7 +133,7 @@ test('the generated og image endpoint returns an svg for published articles', fu
         ->assertSee('<svg', false)
         ->assertSee('data:image/svg+xml;base64', false)
         ->assertDontSee('>NOT<tspan', false)
-        ->assertSee('<rect width="1200" height="630" fill="#fff7f2"/>', false)
+        ->assertSee('<rect width="1200" height="630" fill="#fff7f7"/>', false)
         ->assertDontSee('<rect width="1200" height="630" fill="#0b0b0b"/>', false)
         ->assertSee('Generated images keep previews consistent')
         ->assertSee('Product Updates');

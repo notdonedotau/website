@@ -10,10 +10,10 @@
             content="{{ $description ?? config('app.name') }}"
         >
         <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" media="(prefers-color-scheme: light)">
-
+        <link rel="icon" type="image/png" href="{{ asset('favicon-dm.png') }}" media="(prefers-color-scheme: dark)">
         <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}">
         <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
-        <link rel="mask-icon" href="{{ asset('images/logo.svg') }}" color="#e4572e">
+        <link rel="mask-icon" href="{{ asset('images/logo.svg') }}" color="#ec2024">
         <meta name="msapplication-TileImage" content="{{ asset('favicon.png') }}">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -45,8 +45,8 @@
                         <nav class="site-nav" aria-label="Primary">
                             <a href="{{ url('/') }}">Home</a>
                             <a href="{{ route('about') }}">About</a>
-                            <a href="{{ route('features') }}">Features</a>
                             <a href="{{ route('pricing') }}">Pricing</a>
+                            <a href="{{ route('docs.index') }}">Docs</a>
                             <a href="{{ url('/contact') }}">Contact</a>
                             <button
                                 class="theme-toggle"
@@ -86,12 +86,6 @@
 
                     <nav class="site-footer__group" aria-label="Product">
                         <h2>Product</h2>
-                        <a href="{{ route('features') }}">
-                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                <path d="M4 6h16M4 12h16M4 18h10" />
-                            </svg>
-                            <span>Features</span>
-                        </a>
                         <a href="{{ route('pricing') }}">
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <path d="M12 2v20m5-17H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
@@ -103,6 +97,12 @@
                                 <path d="M5 12h14m-6-6 6 6-6 6" />
                             </svg>
                             <span>Get Started</span>
+                        </a>
+                        <a href="{{ route('docs.index') }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z" />
+                            </svg>
+                            <span>Docs</span>
                         </a>
                         <a href="https://not-done.status.notdone.cloud" target="_blank" rel="noreferrer">
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">

@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(DocsSeeder::class);
+
         $user = User::query()->firstOrCreate([
             'email' => 'joshua@notdone.cloud',
         ], [
@@ -23,6 +25,10 @@ class DatabaseSeeder extends Seeder
             'password' => 'changeme123',
         ]);
 
-       
+        $user->forceFill([
+            'name' => 'Joshua Hagan',
+            'email_verified_at' => $user->email_verified_at ?? now(),
+            'password' => 'changeme123',
+        ])->save();
     }
 }

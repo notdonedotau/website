@@ -13,8 +13,8 @@ test('page titles use the configured app name', function (string $path, string $
 })->with([
     'home' => ['/', ''],
     'about' => ['/about', 'About Us | '],
-    'features' => ['/features', 'Features | '],
     'pricing' => ['/pricing', 'Pricing | '],
+    'docs' => ['/docs', 'Docs | '],
     'blog' => ['/blog', 'Blog | '],
     'get started' => ['/get-started', 'Get Started | '],
     'contact' => ['/contact', 'Contact | '],
@@ -22,3 +22,8 @@ test('page titles use the configured app name', function (string $path, string $
     'terms of service' => ['/terms-of-service', 'Terms of Service | '],
     'website disclaimer' => ['/website-disclaimer', 'Website Disclaimer | '],
 ]);
+
+test('the features route is disabled', function () {
+    $this->get('/features')
+        ->assertNotFound();
+});

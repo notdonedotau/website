@@ -10,7 +10,6 @@ test('product pages show the development notice with a contact link', function (
         ->assertSee('>contact us</a>', false)
         ->assertDontSee('early access notice');
 })->with([
-    'features' => ['/features'],
     'pricing' => ['/pricing'],
     'get started' => ['/get-started'],
 ]);

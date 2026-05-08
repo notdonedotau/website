@@ -15,9 +15,9 @@
     --color-text: #0b0b0b;
     --color-text-muted: #6b7280;
     --color-border: #e5e7eb;
-    --color-primary: #e4572e;
-    --color-primary-hover: #f97316;
-    --color-primary-soft: #fde6d8;
+    --color-primary: #ec2024;
+    --color-primary-hover: #c91b1f;
+    --color-primary-soft: #fde7e8;
     --color-card-bg: #ffffff;
     --bg: var(--color-bg);
     --text: var(--color-text);
@@ -35,8 +35,8 @@
     --color-text: #f9fafb;
     --color-text-muted: #9ca3af;
     --color-border: rgba(255, 255, 255, 0.16);
-    --color-primary: #e4572e;
-    --color-primary-hover: #f97316;
+    --color-primary: #ff4d51;
+    --color-primary-hover: #ec2024;
     --color-primary-soft: color-mix(in srgb, var(--color-primary) 24%, transparent);
     --color-card-bg: #141414;
     --bg: var(--color-bg);
@@ -715,6 +715,299 @@ a:hover {
 .blog-article-content ul,
 .blog-article-content ol {
     padding-left: 1.25rem;
+}
+
+.docs-page {
+    width: min(100%, 72rem);
+}
+
+.docs-hero {
+    max-width: 58rem;
+}
+
+.docs-search {
+    display: grid;
+    gap: 0.55rem;
+    max-width: 46rem;
+    margin-top: 2rem;
+}
+
+.docs-search--centered {
+    margin-inline: auto;
+}
+
+.docs-search--centered label {
+    text-align: center;
+}
+
+.docs-search label {
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.docs-search__control {
+    display: flex;
+    gap: 0.65rem;
+}
+
+.docs-search input {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 0.65rem;
+    background: var(--color-card-bg);
+    color: var(--text);
+    padding: 0.85rem 0.95rem;
+    font: inherit;
+}
+
+.docs-search input:focus {
+    border-color: var(--accent);
+    outline: 2px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    outline-offset: 2px;
+}
+
+.docs-search button {
+    border: 1px solid var(--accent);
+    border-radius: 0.65rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.85rem 1rem;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.docs-layout {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.34fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2.5rem;
+}
+
+.docs-layout--index {
+    margin-top: 3rem;
+}
+
+.docs-sidebar {
+    position: sticky;
+    top: 6.5rem;
+    display: grid;
+    gap: 1.35rem;
+    border-right: 1px solid var(--border);
+    padding-right: 1.25rem;
+}
+
+.docs-sidebar .docs-search {
+    margin-top: 0;
+}
+
+.docs-sidebar .docs-search__control {
+    display: grid;
+}
+
+.docs-sidebar .docs-search input,
+.docs-sidebar .docs-search button {
+    width: 100%;
+}
+
+.docs-sidebar h2,
+.docs-sidebar h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.docs-sidebar__group {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.docs-sidebar a,
+.docs-back-link {
+    color: var(--muted);
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.docs-sidebar a:hover,
+.docs-sidebar a.is-active,
+.docs-back-link:hover {
+    color: var(--accent);
+}
+
+.docs-index {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.docs-search-results {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.docs-search-results h2 {
+    margin: 0.35rem 0 0;
+    color: var(--text);
+    line-height: 1.2;
+}
+
+.docs-empty-state {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 0.65rem;
+    background: color-mix(in srgb, var(--color-card-bg) 76%, transparent);
+    color: var(--muted);
+    line-height: 1.65;
+    padding: 1rem;
+}
+
+.docs-category {
+    display: grid;
+    gap: 1rem;
+}
+
+.docs-category h2,
+.docs-article__content h2,
+.docs-article__content h3,
+.docs-related h2 {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.2;
+}
+
+.docs-category p {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.docs-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.docs-card {
+    display: grid;
+    gap: 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: 0.65rem;
+    background: color-mix(in srgb, var(--color-card-bg) 76%, transparent);
+    padding: 1rem;
+    text-decoration: none;
+    transition:
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.docs-card:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    transform: translateY(-2px);
+}
+
+.docs-card span {
+    color: var(--text);
+    font-weight: 800;
+}
+
+.docs-card small {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.docs-article {
+    min-width: 0;
+}
+
+.docs-article__header {
+    display: grid;
+    gap: 1rem;
+}
+
+.docs-article__header h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.docs-article__header time {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.docs-article__content {
+    margin-top: 2.5rem;
+}
+
+.docs-article__content > * {
+    margin-block: 0 1.15rem;
+}
+
+.docs-article__content h2,
+.docs-article__content h3 {
+    margin-top: 2rem;
+}
+
+.docs-article__content p,
+.docs-article__content li {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.docs-article__content a,
+.docs-related a,
+.docs-cta a {
+    color: var(--accent);
+    font-weight: 800;
+}
+
+.docs-article__content ul,
+.docs-article__content ol {
+    padding-left: 1.25rem;
+}
+
+.docs-related {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+}
+
+.docs-related__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+}
+
+.docs-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: baseline;
+    margin-top: 3rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+    border-radius: 0.65rem;
+    background: color-mix(in srgb, var(--color-primary-soft) 54%, transparent);
+    padding: 1rem;
+}
+
+.docs-cta p {
+    margin: 0;
+    color: var(--text);
+    font-weight: 800;
 }
 
 .section-note {
@@ -2117,6 +2410,23 @@ a:hover {
 
     .blog-grid {
         grid-template-columns: 1fr;
+    }
+
+    .docs-layout,
+    .docs-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .docs-sidebar {
+        position: static;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        padding-right: 0;
+        padding-bottom: 1.25rem;
+    }
+
+    .docs-search__control {
+        display: grid;
     }
 
     .home-services-grid {
