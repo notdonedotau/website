@@ -5,72 +5,77 @@ test('the application returns a successful response', function () {
 
     $response
         ->assertSuccessful()
-        ->assertSee('Keep showing up.')
-        ->assertSee('Even when things don’t.')
-        ->assertSee('NOT')
-        ->assertSee('DONE')
+        ->assertSee('Always innovating. Always showing up.')
+        ->assertSee('We build practical brands and products')
+        ->assertDontSee('images/stackedpay-logo.svg', false)
         ->assertSee('images/logo-dm.svg', false)
-        ->assertSee('images/logo.svg', false)
-        ->assertSee('href="http://notdone.test/favicon.png"', false)
-        ->assertSee('media="(prefers-color-scheme: light)"', false)
-        ->assertSee('href="http://notdone.test/favicon-dm.png"', false)
-        ->assertSee('media="(prefers-color-scheme: dark)"', false)
-        ->assertSee('rel="apple-touch-icon" href="http://notdone.test/favicon.png"', false)
-        ->assertSee('rel="mask-icon" href="http://notdone.test/images/logo.svg" color="#ec2024"', false)
-        ->assertSee('name="msapplication-TileImage" content="http://notdone.test/favicon.png"', false)
+        ->assertSee('max-w-6xl', false)
+        ->assertSee('px-6 py-6', false)
+        ->assertSee('favicon.png', false)
+        ->assertSee('#ec2024', false)
+        ->assertSee('href="'.route('brands').'"', false)
+        ->assertSee('href="'.route('contact').'"', false)
+        ->assertSee('View brands')
+        ->assertSee('Always innovating. Always showing up.')
+        ->assertSee('Terms of Service')
+        ->assertSee('Privacy Policy')
+        ->assertSee('Website Disclaimer')
+        ->assertSee('ABN 43 697 288 583')
+        ->assertDontSee('Visit stackedpay.com.au')
+        ->assertDontSee('Contact StackedPay')
+        ->assertDontSee('name="name"', false)
+        ->assertDontSee('name="email"', false)
+        ->assertDontSee('name="subject"', false)
+        ->assertDontSee('name="message"', false)
+        ->assertDontSee('Send enquiry')
         ->assertDontSee('images/notdone-logo.svg', false)
-        ->assertSee('/about', false)
+        ->assertDontSee('site-header', false)
+        ->assertSee('site-footer', false)
+        ->assertDontSee('/about', false)
+        ->assertDontSee('/pricing', false)
+        ->assertDontSee('/docs', false)
         ->assertDontSee('/careers', false)
         ->assertDontSee('home-service-card')
         ->assertDontSee('Development')
-        ->assertDontSee('Products')
-        ->assertSeeInOrder(['Pricing', 'Docs', 'Contact', 'Get Started'])
         ->assertDontSee('<a href="'.url('/features').'">Features</a>', false)
-        ->assertDontSee('<a href="'.route('blog.index').'">Blog</a>', false)
+        ->assertDontSee('<a href="/blog">Blog</a>', false)
         ->assertDontSee('<a class="site-nav__button" href="https://account.notdone.cloud">Account</a>', false)
-        ->assertSeeInOrder(['Product', 'Pricing', 'Get Started', 'Docs', 'Status'])
-        ->assertSeeInOrder(['Company', 'About', 'Blog', 'Account Login'])
-        ->assertSeeInOrder(['Contact', 'Perth, Western Australia', 'Contact us', 'ABN 43 697 288 583'])
-        ->assertSee('Simple hosted status pages for teams that need clear incident communication.')
+        ->assertDontSee('Simple hosted status pages for teams that need clear incident communication.')
         ->assertSee('https://abr.business.gov.au/ABN/View?abn=43697288583', false)
-        ->assertSee('href="'.route('get-started').'"', false)
-        ->assertSee('https://not-done.status.notdone.cloud', false)
-        ->assertSee('/get-started', false)
+        ->assertDontSee('href="/get-started"', false)
+        ->assertDontSee('https://not-done.status.notdone.cloud', false)
+        ->assertDontSee('/get-started', false)
         ->assertDontSee('/domains', false)
         ->assertDontSee('/cpanel-web-hosting', false);
 });
 
-test('the get started page defaults to the growth trial', function () {
-    config(['services.turnstile.site_key' => 'turnstile-site-key']);
-    config(['services.turnstile.secret_key' => 'turnstile-secret-key']);
-    config(['app.debug' => false]);
-
-    $response = $this->get('/get-started');
-
-    $response
+test('the brands page shows not done brands', function () {
+    $this->get('/brands')
         ->assertSuccessful()
-        ->assertSee('No credit card required')
-        ->assertSee('name="first_name"', false)
-        ->assertSee('name="last_name"', false)
-        ->assertSee('name="mobile"', false)
-        ->assertSee('name="password"', false)
-        ->assertSee('name="password_confirmation"', false)
-        ->assertSee('name="country"', false)
-        ->assertSee('name="postcode"', false)
-        ->assertSee('name="terms_accepted"', false)
-        ->assertSee('Privacy Policy')
+        ->assertSee('Brands we are building.')
+        ->assertSee('StackedPay')
+        ->assertSee('A simpler way for Australians to lay-by gift cards with no hidden fees.')
+        ->assertSee('https://stackedpay.com.au', false)
+        ->assertSee('aria-label="Not Done home"', false)
+        ->assertSeeInOrder(['Brands', 'Contact'])
+        ->assertSee('max-w-6xl', false)
+        ->assertSee('px-6 py-6', false)
+        ->assertSee('px-6 pb-16 pt-10', false)
+        ->assertDontSee('Pricing')
+        ->assertDontSee('Get Started')
+        ->assertDontSee('Docs')
+        ->assertDontSee('Blog')
         ->assertSee('Terms of Service')
-        ->assertSee('value="AU" selected', false)
-        ->assertSee('United States')
-        ->assertSee('South Africa')
-        ->assertSee('Japan')
-        ->assertSee('Status Page Name')
-        ->assertSee('Your generated page')
-        ->assertSee('acme.status.notdone.cloud')
-        ->assertSee('data-submit-label', false)
-        ->assertSee('https://challenges.cloudflare.com/turnstile/v0/api.js', false)
-        ->assertSee('class="cf-turnstile"', false)
-        ->assertSee('data-sitekey="turnstile-site-key"', false)
-        ->assertSee('value="growth"', false)
-        ->assertSee('name="pricing_id" value="6"', false);
+        ->assertSee('Privacy Policy')
+        ->assertSee('Website Disclaimer');
 });
+
+test('old public pages are disabled', function (string $path) {
+    $this->get($path)->assertNotFound();
+})->with([
+    'about' => ['/about'],
+    'pricing' => ['/pricing'],
+    'docs' => ['/docs'],
+    'blog' => ['/blog'],
+    'get started' => ['/get-started'],
+]);

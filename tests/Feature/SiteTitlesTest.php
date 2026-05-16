@@ -12,11 +12,7 @@ test('page titles use the configured app name', function (string $path, string $
         ->assertSee("<title>{$titlePrefix}Example Status</title>", false);
 })->with([
     'home' => ['/', ''],
-    'about' => ['/about', 'About Us | '],
-    'pricing' => ['/pricing', 'Pricing | '],
-    'docs' => ['/docs', 'Docs | '],
-    'blog' => ['/blog', 'Blog | '],
-    'get started' => ['/get-started', 'Get Started | '],
+    'brands' => ['/brands', 'Brands | '],
     'contact' => ['/contact', 'Contact | '],
     'privacy policy' => ['/privacy-policy', 'Privacy Policy | '],
     'terms of service' => ['/terms-of-service', 'Terms of Service | '],

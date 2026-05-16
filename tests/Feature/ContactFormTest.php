@@ -28,7 +28,7 @@ test('the contact page shows the contact form', function () {
     $response
         ->assertSuccessful()
         ->assertSee('Send message')
-        ->assertSee('support@notdone.au')
+        ->assertSee('support@notdone.cloud')
         ->assertSee('https://challenges.cloudflare.com/turnstile/v0/api.js', false)
         ->assertSee('class="cf-turnstile"', false)
         ->assertSee('data-sitekey="turnstile-site-key"', false)

@@ -1,45 +1,43 @@
-@extends('layouts.site', [
-    'title' => config('app.name'),
-    'description' => 'Status pages for agencies, hosting providers, and SaaS teams.',
-])
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Not Done builds brands that keep improving and keep showing up.">
 
-@section('content')
-    <div class="home-page">
-        <section class="hero home-hero">
-            <p class="eyebrow">Keep showing up.</p>
-            <h1>Even when things don’t.</h1>
-            <p class="hero-copy">
-                Built for agencies, hosting providers, and SaaS teams.
-            </p>
-            <div class="home-hero__actions" aria-label="Primary actions">
-                <a class="home-hero__button home-hero__button--primary" href="{{ route('get-started') }}">
-                    Start your status page
-                </a>
-                <a class="home-hero__button home-hero__button--secondary" href="{{ route('pricing') }}">
-                    View pricing
-                </a>
-            </div>
-        </section>
+        <title>{{ config('app.name') }}</title>
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-        <section class="home-section" aria-labelledby="home-what-you-get-heading">
-            <div class="section-heading">
-                <p class="eyebrow">What you get</p>
-                <h2 id="home-what-you-get-heading">A clear place for every service update.</h2>
-            </div>
-            <div class="home-card-grid">
-                <article class="home-info-card">
-                    <h3>Hosted status pages</h3>
-                    <p>Publish incidents, maintenance, and service health without building the plumbing yourself.</p>
-                </article>
-                <article class="home-info-card">
-                    <h3>Flexible components</h3>
-                    <p>Show public or private components for apps, APIs, regions, infrastructure, or client services.</p>
-                </article>
-                <article class="home-info-card">
-                    <h3>Notifications</h3>
-                    <p>Notify customers by email or SMS. Send alerts to your team via Slack, Teams, or webhooks.</p>
-                </article>
-            </div>
-        </section>
-    </div>
-@endsection
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="bg-white font-sans text-slate-950 antialiased">
+        <div class="min-h-screen bg-[radial-gradient(circle_at_top,#fde7e8_0%,#ffffff_42%,#f9fafb_100%)]">
+            @include('partials.site-header')
+
+            <main class="mx-auto grid min-h-[calc(100vh-5.5rem)] w-full max-w-6xl items-center px-6 pb-16 pt-10">
+                <section class="max-w-4xl">
+                    <p class="text-sm font-semibold uppercase text-[#ec2024]">Not Done Pty Ltd</p>
+
+                    <h1 class="mt-5 text-5xl font-semibold tracking-normal text-slate-950 text-balance sm:text-7xl">
+                        Always innovating. Always showing up.
+                    </h1>
+
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                        We build practical brands and products for businesses that need dependable systems, clear communication, and steady improvement.
+                    </p>
+
+                    <div class="mt-10 flex flex-wrap gap-3">
+                        <a class="inline-flex rounded-md bg-[#ec2024] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#c91b1f]" href="{{ route('brands') }}">
+                            View brands
+                        </a>
+                        <a class="inline-flex rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:border-[#ec2024] hover:text-[#ec2024]" href="{{ route('contact') }}">
+                            Contact us
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            @include('partials.site-footer')
+        </div>
+    </body>
+</html>

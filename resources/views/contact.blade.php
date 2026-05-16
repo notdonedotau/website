@@ -14,7 +14,7 @@
 @endif
 
 @section('content')
-    <section class="content-page content-page--narrow">
+    <section class="content-page content-page--narrow !mx-0 !px-0">
         <p class="eyebrow">Contact</p>
         <h1>Get in touch.</h1>
         <p class="page-intro">

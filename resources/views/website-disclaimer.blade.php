@@ -4,7 +4,7 @@
 ])
 
 @section('content')
-    <section class="content-page legal-page">
+    <section class="content-page legal-page !mx-0 !px-0">
         <p class="eyebrow">Legal</p>
         <h1>Website Disclaimer</h1>
         <div class="legal-content">
